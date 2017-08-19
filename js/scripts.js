@@ -32,6 +32,10 @@ function setGameElements() {
       break;
     case 'ended':
         newGameBtn.innerText = 'Jeszcze raz';
+        playerPickElem.innerText = 'Wybór gracza';
+        computerPickElem.innerText = 'Wybór Bota';
+        playerResultElem.innerText = 'Twoje Punkty';
+        computerResultElem.innerText = 'Punkty Bota';
     case 'notStarted':
     default:
         newGameElem.style.display = 'block';
@@ -106,15 +110,13 @@ function checkRoundWinner(playerPick, computerPick) {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
         computerPointsElem.innerHTML++;
+    } else {
+        computerResultElem.innerHTML = playerResultElem.innerHTML = "Draw!";
     }
 
 }
 
-function remisGame (player, computer) {
-    if (('player.score' == 10) && ('computer.score' == 10)) {
-        alert('Remis');
-    }
-}
+
 
 function playerPick(playerPick) {
     var computerPick = getComputerPick();
