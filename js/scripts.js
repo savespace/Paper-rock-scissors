@@ -56,7 +56,7 @@ function setGamePoints() {
 }
 
 function newGame() {
-  	player.name = prompt('Please enter your name', 'imię gracza');
+  	player.name = prompt('Proszę wpisać swoję imię', 'imię gracza');
   	if (player.name) {
     player.score = computer.score = 0;
     gameState = 'started';
@@ -108,6 +108,12 @@ function checkRoundWinner(playerPick, computerPick) {
         computerPointsElem.innerHTML++;
     }
 
+}
+
+function remisGame (player, computer) {
+    if (('player.score' == 10) && ('computer.score' == 10)) {
+        alert('Remis');
+    }
 }
 
 function playerPick(playerPick) {
