@@ -32,6 +32,10 @@ function setGameElements() {
       break;
     case 'ended':
         newGameBtn.innerText = 'Jeszcze raz';
+        playerPickElem.innerText = 'Wybór gracza';
+        computerPickElem.innerText = 'Wybór Bota';
+        playerResultElem.innerText = 'Twoje punkty';
+        computerResultElem.innerText = 'Punkty Bota';
     case 'notStarted':
     default:
         newGameElem.style.display = 'block';
@@ -67,20 +71,10 @@ function newGame() {
   }
 
 }
-function playerPick(playerPick) {
-    console.log(playerPick);
-}
 
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
     return possiblePicks[Math.floor(Math.random()*3)];
-}
-
-function playerPick(playerPick) {
-    var computerPick = getComputerPick();
-
-    playerPickElem.innerHTML = playerPick;
-    computerPickElem.innerHTML = computerPick;
 }
 
 function checkRoundWinner(playerPick, computerPick) {
@@ -106,13 +100,8 @@ function checkRoundWinner(playerPick, computerPick) {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
         computerPointsElem.innerHTML++;
-    }
-
-}
-
-function remisGame (player, computer) {
-    if (('player.score' == 10) && ('computer.score' == 10)) {
-        alert('Remis');
+    } else {
+        computerResultElem.innerHTML = playerResultElem.innerHTML = "Draw!";
     }
 }
 
